@@ -7,8 +7,6 @@ import json
 import os 
 from pprint import pprint
 import requests
-import pyjq
-import array
 
 '''
 This sample makes a call to the Bing Web Search API with a query and returns relevant web search.
@@ -32,18 +30,21 @@ try:
     documents = json_data["response"]["docs"]
     amountOfArticles = len(documents)
 
-    print(amountOfArticles)
-    print(type(documents))
-
+   
+    file = 'json.txt' 
     for x in range(amountOfArticles):
         
         headline = json_data["response"]["docs"][x]["headline"]["main"]
         lead_paragraph = json_data["response"]["docs"][x]["lead_paragraph"]
         pub_date = json_data["response"]["docs"][x]["pub_date"]
-        with open('json.txt', 'a') as f:
-            json.dump(headline + "*", f, indent=4)
-            json.dump(lead_paragraph + "*", f, indent=4)
-            json.dump(pub_date + "*", f, indent=4)
+        with open(file, 'a') as f:
+            json.dump(headline, f)
+            f.write("\n")
+            json.dump(lead_paragraph, f)
+            f.write("\n")
+            json.dump(pub_date, f)
+            f.write("\n")
+
         
     
 
