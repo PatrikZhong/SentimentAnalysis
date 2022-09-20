@@ -7,7 +7,6 @@ import json
 import os 
 from pprint import pprint
 import requests
-import pyjq
 import array
 
 '''
