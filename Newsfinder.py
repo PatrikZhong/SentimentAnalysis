@@ -21,8 +21,6 @@ try:
     response = requests.get(endpoint)
     response.raise_for_status()
 
-    # print("Headers:")
-    # print(response.headers)
 
     json_data = response.json() #dictionary
     # print(json_data['response'])
